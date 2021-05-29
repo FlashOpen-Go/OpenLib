@@ -9,8 +9,10 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
+    DynamicList.h \
     Exception.h \
     List.h \
     Object.h \
     SeqList.h \
-    SmartPointer.h
+    SmartPointer.h \
+    StaticList.h
