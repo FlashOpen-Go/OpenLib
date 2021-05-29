@@ -1,75 +1,30 @@
 #include <iostream>
-#include "SmartPointer.h"
-#include "Exception.h"
-#include "Object.h"
-#include "SeqList.h"
+#include "DynamicList.h"
 
 using namespace std;
 using namespace OpenLib;
 
-class Test : public Object
+
+int main()
 {
-public:
-    int i;
-    int j;
+    DynamicList<int> ll(4);
 
-};
-
-class Filea : public Test
-{
-public:
-    int f;
-};
-
-int main(int argc, char *argv[])
-{
-//    SmartPointer<Test> sp = new Test();
-//    SmartPointer<Test> new_sp = sp;
-
-//    cout << sp.isNull() << endl;
-//    cout << new_sp.isNull() << endl;
-
-    Object* p = new Test();
-    Object* q = new Filea();
-
-    SeqList<int>* ll;
-
-    delete p;
-    delete q;
-
-    try
+    for (int i = 0; i < 4; i++)
     {
-        THROW_EXCEPTION(InvalidParameterException, "__FILE__, __LINE__");
+        ll.insert(0, i);
     }
-    catch (const ArithmeticException& e)
+
+    for (int i = 0; i < ll.length(); i++)
     {
-        cout << "ArithmeticException: ";
-        cout << e.message() << " ," << e.location() << endl;
+        cout << "ll[" << i << "] = " << ll[i] << endl;
     }
-    catch (const InvalidParameterException& e)
+
+    ll [ 3 ] = 9;
+    ll.remove(3);
+
+    for (int i = 0; i < ll.length(); i++)
     {
-        cout << "InvalidParameterException: ";
-        cout << e.message() << " ," << e.location() << endl;
-    }
-    catch (const NoEnonghMemoryException& e)
-    {
-        cout << "NoEnonghMemoryException: ";
-        cout << e.message() << " ," << e.location() << endl;
-    }
-    catch (const IndexOutOfBoundsException& e)
-    {
-        cout << "IndexOutOfBoundsException: ";
-        cout << e.message() << " ," << e.location() << endl;
-    }
-    catch (const NullPointerException& e)
-    {
-        cout << "NullPointerException: ";
-        cout << e.message() << " ," << e.location() << endl;
-    }
-    catch (const Exception& e)
-    {
-        cout << "Exception: ";
-        cout << e.message() << " ," << e.location() << endl;
+        cout << "ll[" << i << "] = " << ll[i] << endl;
     }
 
     return 0;
