@@ -1,3 +1,15 @@
+/************************************************************
+ * SeqList.h
+ * 2021-5-29 by FlashOpen-Go
+ * SeqList实现，SeqList是List的抽象类，之后的相关List均基于当前抽象类实现
+ *
+ *  更新日志：
+    * 2021-5-26 FlashOpen-Go
+        * 添加相关基础功能实现
+    * 2021-5-29 FlashOpen-Go
+        * 修复insert操作时未插入数据的问题
+*************************************************************/
+
 #ifndef SEQLIST_H
 #define SEQLIST_H
 
@@ -16,7 +28,7 @@ protected:
 public:
     bool insert(int i, const T& e)
     {
-        bool ret = (i >=0 && i < m_Length);
+        bool ret = (i >=0 && i <= m_Length);
         ret &= (i < capacity());
         if (ret)
         {
@@ -24,6 +36,7 @@ public:
             {
                 m_Array[ j + 1] = m_Array[j];
             }
+            m_Array[i] = e;
             m_Length++;
         }
         return ret;
