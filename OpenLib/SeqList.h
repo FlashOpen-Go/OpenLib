@@ -42,6 +42,11 @@ public:
         return ret;
     }
 
+    bool insert(const T& e)
+    {
+        insert(m_Length, e);
+    }
+
     bool remove(int i)
     {
         bool ret = (i >=0 && i < m_Length);
