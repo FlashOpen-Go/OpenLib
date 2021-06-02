@@ -1,5 +1,5 @@
 #include <iostream>
-#include "DynamicList.h"
+#include <staticarray.h>
 
 using namespace std;
 using namespace OpenLib;
@@ -7,24 +7,15 @@ using namespace OpenLib;
 
 int main()
 {
-    DynamicList<int> ll(4);
-
-    for (int i = 0; i < 4; i++)
+    StaticArray<int, 10> array;
+    for (int i = 0; i < array.length(); i++)
     {
-        ll.insert(0, i);
+        array[i] = i;
     }
 
-    for (int i = 0; i < ll.length(); i++)
+    for (int i = 0; i < array.length(); i++)
     {
-        cout << "ll[" << i << "] = " << ll[i] << endl;
-    }
-
-    ll [ 3 ] = 9;
-    ll.remove(3);
-
-    for (int i = 0; i < ll.length(); i++)
-    {
-        cout << "ll[" << i << "] = " << ll[i] << endl;
+        cout << array[i] << endl;
     }
 
     return 0;
