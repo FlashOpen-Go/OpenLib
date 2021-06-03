@@ -1,5 +1,5 @@
 #include <iostream>
-#include <staticarray.h>
+#include <dynamicarray.h>
 
 using namespace std;
 using namespace OpenLib;
@@ -7,7 +7,7 @@ using namespace OpenLib;
 
 int main()
 {
-    StaticArray<int, 10> array;
+    DynamicArray<int> array(10);
     for (int i = 0; i < array.length(); i++)
     {
         array[i] = i;
@@ -16,6 +16,14 @@ int main()
     for (int i = 0; i < array.length(); i++)
     {
         cout << array[i] << endl;
+    }
+
+    DynamicArray<int> array2(5);
+    array2 =array;
+    array2.resize(14);
+    for (int i = 0; i < array2.length(); i++)
+    {
+        cout << array2[i] << endl;
     }
 
     return 0;
