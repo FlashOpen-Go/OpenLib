@@ -71,6 +71,22 @@ public:
         return ret;
     }
 
+    int find(const T&e)
+    {
+        int ret = -1;
+
+        for (int i = 0; i < m_Length; i++)
+        {
+            if (m_Array[i] == e)
+            {
+                ret = i;
+                break;
+            }
+        }
+
+        return ret;
+    }
+
     bool get(int i, T& e)
     {
         bool ret = (i >=0 && i < m_Length);

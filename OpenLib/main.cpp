@@ -4,21 +4,38 @@
 using namespace std;
 using namespace OpenLib;
 
+class Test111 : public Object
+{
+protected:
+    int v;
+public:
+    Test111()
+    {
+
+    }
+    Test111(int v)
+    {
+        this->v = v;
+    }
+    bool operator == (const Test111& t)
+    {
+        return (v == t.v);
+    }
+};
 
 int main()
 {
-    LinkList<int> array;
-    for (int i = 0; i < 5; i++)
-    {
-        array.insert(i);
-    }
+    Test111 t1(1);
+    Test111 t2(2);
+    Test111 t3(3);
 
-    array.remove(1);
+    LinkList<Test111> array;
 
-    for (int i = 0; i < array.length(); i++)
-    {
-        cout << array.get(i) << endl;
-    }
+    array.insert(t1);
+    array.insert(t2);
+    array.insert(t3);
+
+    cout << array.find(t2) << endl;
 
     return 0;
 }

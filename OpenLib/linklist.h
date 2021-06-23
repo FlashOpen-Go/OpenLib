@@ -116,6 +116,29 @@ public:
         return ret;
     }
 
+    int find(const T&e)
+    {
+        int ret = -1;
+
+        int TempCount = 0;
+        Node* TempNode = ListHead.next;
+        while(TempNode != nullptr)
+        {
+            if (TempNode->m_Value == e)
+            {
+                ret = TempCount;
+                break;
+            }
+            else
+            {
+                TempCount++;
+                TempNode = TempNode->next;
+            }
+        }
+
+        return ret;
+    }
+
     int length() const
     {
         return m_Length;
