@@ -25,17 +25,21 @@ public:
 
 int main()
 {
-    Test111 t1(1);
-    Test111 t2(2);
-    Test111 t3(3);
+    LinkList<int> list;
+    for (int i = 0 ; i < 5; i++)
+    {
+        list.insert(0, i);
+    }
 
-    LinkList<Test111> array;
+    for (int i = 0 ; i < list.length(); i++)
+    {
+        cout << list.get(i) << endl;
+    }
 
-    array.insert(t1);
-    array.insert(t2);
-    array.insert(t3);
-
-    cout << array.find(t2) << endl;
+    for (list.move(0, 2); !list.end(); list.next())
+    {
+        cout << list.current() << endl;
+    }
 
     return 0;
 }
